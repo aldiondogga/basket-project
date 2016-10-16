@@ -1,0 +1,73 @@
+html body{
+    width: 100%; !important;
+    background-color: whitesmoke; !important;
+}
+#main-view{
+    width: 90%;
+    margin: auto;
+    margin-top: 8px;  }
+.mainSection{
+    width: 100%;
+    box-shadow: 13px 1px 29px #888;
+}
+
+.input-error{
+    color: red;  }
+.input-error label{
+    color: red;
+}
+
+@font-face { font-family: Roboto; src: url('font/Roboto-Regular.ttf'); }
+@font-face { font-family: Yanone; src: url('font/YanoneKaffeesatz-Regular.otf'); }
+
+
+body{
+    font-family: 'Roboto';
+}
+p,span,div,th,label{
+    font-family: 'Roboto';
+}
+
+input:placeholder-shown{
+    color: #888;  }
+.md-datepicker-input-container{
+    border-bottom-color: #DDD;
+}
+md-datepicker-input,
+md-datepicker-input:placeholder-shown,
+md-select .md-select-value.md-select-placeholder,
+md-input-container label,
+md-input-container .md-placeholder{
+    color: #888;  }
+
+h1,h2{
+    font-family: 'Yanone';
+    font-weight: bold;
+}
+h3{
+    font-family: 'Yanone';
+    font-weight: 400;
+}
+h4{
+    font-family: 'Yanone';
+    font-weight: 300;
+}
+h5{
+    font-family: 'Yanone';
+    font-weight: 200;
+}
+h6{
+    font-family: 'Yanone';
+    font-weight: 100;
+}
+
+.carddemoBasicUsage .card-media {
+    background-color: #999999;
+}
+.listdemoBasicUsage md-divider {
+    margin-top: 10px;
+    margin-bottom: 0; }
+
+.md-style-full {
+    width:100%
+}

@@ -1,0 +1,214 @@
+a{
+    text-decoration: none;
+    color: #272727;  }
+
+.revevol .md-button.md-raised.md-primary{
+    color: whitesmoke !important;  }
+.revevol .md-button.md-primary.md-fab md-icon{
+    color: whitesmoke !important;  }
+.overlay {
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 999;
+    height: 100%;
+    background: darkgray;  }
+.md-toolbar-tools{
+    color: whitesmoke;
+    height: 75px;
+    max-height: 75px; }
+
+.md-toolbar-tools .title,
+.md-toolbar-tools .logo{
+    height: 75px;
+    position: absolute; }
+
+.md-toolbar-tools .title{
+    right: 0;  }
+.md-toolbar-tools .logo{
+    left: 0;  }
+
+.small-button{
+    min-width: 40px;
+    margin: 0;  }
+
+.travel-request-section h1{
+    width: 100%;
+    border-bottom: 2px solid #004E7F;
+}
+
+.travel-data-table,
+.data-table{
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;}
+.data-table th{
+    color: #004E7F;
+    font-weight: 100;
+    font-size: small;
+    height: 30px;
+    line-height: 30px;}
+.data-table td{
+    height: 18px;
+    line-height: 18px;
+    padding: 10px 2px 10px 2px;}
+.data-table tr{
+    border-bottom: 1px solid #DDD;  }
+.data-table tr:last-child{
+    border-bottom: none;  }
+.data-table tbody tr:hover{
+    cursor: hand;
+    background-color: #CCC;}
+
+/* travel data */
+
+md-input-container{
+    width: inherit;
+}
+
+.travel-data-table md-input-container{
+    width: 98%;
+}
+
+.travel-data-table md-datepicker{
+    position: absolute;
+    background-color: transparent;
+    top: 23px;  }
+.travel-data-table .md-datepicker-input-container{
+    padding-bottom:0;
+    margin-left: 4px;
+    width: 80px;  }
+.travel-data-table .md-datepicker-input-container input{
+    width: 80px;  }
+.travel-data-table .md-button.md-icon-button{
+    width: 30px;
+    height: 30px;
+    margin: 0px;}
+.travel-data-table md-select,
+.travel-data-table md-select .md-select-value,
+.travel-data-table md-input-container{
+    padding: 0;  }
+.travel-data-table md-select,
+.travel-data-table md-select .md-select-value{
+    margin: 0px;
+    top: 2px;}
+
+.travel-data-table .type md-select .md-select-value,
+.travel-data-table .type,
+.travel-data-table .check-out,
+.travel-data-table .check-in,
+.travel-data-table .check-out md-input-container,
+.travel-data-table .check-in md-input-container,
+.travel-data-table .toDate md-input-container,
+.travel-data-table .toDate,
+.travel-data-table .fromDate md-input-container,
+.travel-data-table .fromDate,
+.travel-data-table .date md-input-container,
+.travel-data-table .date{
+    position: relative;
+    width: 120px;
+    min-width: 120px;}
+.travel-data-table .price,
+.travel-data-table .price md-input-container,
+.travel-data-table .arr-time,
+.travel-data-table .dep-time,
+.travel-data-table .arr-time md-input-container,
+.travel-data-table .dep-time md-input-container{
+    width: 80px;
+    max-width: 80px;
+    min-width: 80px;}
+
+.travel-data-table .destination,
+.travel-data-table .from,
+.travel-data-table .to,
+.travel-data-table .notes {
+    min-width: 130px;
+    width: 30%;
+    max-width: 130px;
+    overflow: auto;  }
+
+.data-table .emailSent{
+    min-width: 80px;
+    width: 80px;
+    max-width: 80px;
+}
+.travel-data-table .location,
+.travel-data-table .hotel-name{
+    min-width: 200px;
+    max-width: 200px;
+    width: 30%;
+    overflow: auto;  }
+
+.travel-data-table .actions md-input-container,
+.travel-data-table .actions{
+    width: 90px;
+    max-width: 90px;
+    min-width: 90px;
+    white-space: nowrap;}
+
+.data-table tbody .selectedRow{
+    background-color: #EFAD05;  }
+.data-table tbody .selectedRow:hover{
+    background-color: #EFAD05;  }
+
+.request-data-table th{
+    cursor: pointer;  }
+.request-data-table .creator{
+    width: 130px;  }
+.request-data-table .id{
+    width: 210px;  }
+.request-data-table .fromDate,
+.request-data-table .date{
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px; }
+.request-data-table td{
+    padding: 10px 10px 10px 2px;}
+
+.md-button.md-fab md-icon.dark-icon{
+    color: #004E7F;
+}
+
+.rules-data-table md-input-container{
+    width: 98%;}
+
+.rules-data-table .emails,
+.rules-data-table .name{
+    min-width: 400px;
+    width: 50%;
+    max-width: 400px;
+    overflow: auto;  }
+
+.rules-data-table .actions{
+    min-width: 90px;
+    white-space: nowrap;}
+
+.users-data-table md-input-container{
+    width: 98%;  }
+
+.users-data-table .email{
+    width: 100%;
+    max-width: 800px;
+    min-width: 800px;
+    overflow: auto;}
+.users-data-table .actions{
+    min-width: 90px;
+    white-space: nowrap;}
+
+.menu-up{
+    color: #DDD;
+    position: absolute;
+    top:0;  }
+.menu-down{
+    color: #DDD;
+    position: absolute;
+    top:8px;  }
+
+.menu-up.order-selected,
+.menu-down.order-selected{
+    color: #434343;
+}

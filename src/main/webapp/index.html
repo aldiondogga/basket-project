@@ -1,0 +1,205 @@
+<html lang="en" ng-app="basketApp">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <script src="js/lib/jquery-ui.min.js"></script>
+
+    <!-- Angular Material Dependencies -->
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="js/lib/angular-aria/angular-aria.min.js"></script>
+    <script src="js/lib/angular-route/angular-route.js"></script>
+    <script src="js/lib/angular-material/angular-material.min.js"></script>
+    <link rel="stylesheet" href="js/lib/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="js/lib/angular-material/font-css.css">
+    <script src="js/lib/angular-material-icons/angular-material-icons.min.js"></script>
+
+
+    <script src="js/lib/moment.js"></script>
+    <script src="js/lib/angular-moment.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/services.js"></script>
+    <script src="js/basket-ctrl.js"></script>
+    <script src="js/product-ctrl.js"></script>
+    <script src="js/app.js"></script>
+
+    <meta name="viewport" content="initial-scale=1">
+    <title>Basket</title>
+</head>
+<body ng-cloak layout="column">
+<div class="wrapper container" id="popupContainer">
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Shop">
+                    <md-content class="md-padding">
+                        <h3 class="md-display-2">Shop</h3>
+
+                        <div ng-controller="BasketCtrl" ng-cloak>
+                            <div layout-gt-sm="row" layout="row" ng-cloak ng-init="getAllProduct()">
+                                <div flex-gt-sm="50" flex>
+                                    <md-toolbar layout="row" class="md-hue-3">
+                                        <div class="md-toolbar-tools">
+                                            <span>Product List</span>
+                                        </div>
+                                    </md-toolbar>
+                                    <md-content>
+                                        <md-list flex>
+                                            <md-subheader class="md-no-sticky">{{productList.length}} item
+                                            </md-subheader>
+                                            <md-list-item class="md-3-line"
+                                                          ng-repeat="product in productList  | orderBy : product.name">
+                                                <div class="md-list-item-text" layout="column">
+                                                    <h3>{{product.name}} at {{product.price}}</h3>
+
+                                                    <div ng-if="product.exemptTax">
+                                                        <h4>Taxes exempt product</h4>
+                                                    </div>
+                                                    <div ng-if="product.isImported">
+                                                        <p>Imported product</p>
+                                                    </div>
+                                                </div>
+                                                <div layout="column" layout-align="center center">
+                                                    <md-input-container>
+                                                        <label>Quntaty</label>
+                                                        <md-select ng-model="quantity">
+                                                            <md-option value="1">1</md-option>
+                                                            <md-option value="2">2</md-option>
+                                                            <md-option value="3">3</md-option>
+                                                            <md-option value="4">4</md-option>
+                                                        </md-select>
+                                                    </md-input-container>
+                                                </div>
+                                                <div layout="column" layout-align="end end end end">
+                                                    <md-button class="md-icon-button" aria-label="Add to basket"
+                                                               ng-click="addItem(product,quantity)">
+                                                        <md-icon
+                                                                md-svg-src="img/ic_add_shopping_cart_black_18px.svg"
+                                                                class="s48"
+                                                                aria-label="Add">
+                                                        </md-icon>
+                                                    </md-button>
+                                                </div>
+                                            </md-list-item>
+                                            <md-divider></md-divider>
+                                        </md-list>
+                                    </md-content>
+                                </div>
+                                <md-divider></md-divider>
+                                <div flex-gt-sm="50" flex>
+                                    <md-toolbar layout="row" class="md-hue-3">
+                                        <div class="md-toolbar-tools">
+                                            <span>Basket</span>
+                                        </div>
+                                    </md-toolbar>
+                                    <md-content>
+                                        <md-list flex>
+                                            <md-subheader class="md-no-sticky">{{basket.length}} item</md-subheader>
+                                            <md-list-item class="md-3-line" ng-repeat="item in basket.basket">
+                                                <div class="md-list-item-text" layout="column">
+                                                    <h3>{{item.quantity}} x {{item.product.name}}: {{item.amount}}</h3>
+
+                                                    <div ng-if="item.product.exemptTax">
+                                                        <h4>Taxes exempt product</h4>
+                                                    </div>
+                                                    <div ng-if="item.product.isImported">
+                                                        <p>Imported product</p>
+                                                    </div>
+                                                </div>
+                                                <div class="md-list-item-text" layout="column"
+                                                     layout-align="end center">
+                                                    <md-button class="md-icon-button" aria-label="Delete from basket"
+                                                               ng-click="deleteItem(item)">
+                                                        <md-icon
+                                                                md-svg-src="img/ic_delete_black_18px.svg"
+                                                                class="s48"
+                                                                aria-label="Delete from basket">
+                                                        </md-icon>
+                                                    </md-button>
+                                                </div>
+                                            </md-list-item>
+                                            <md-divider></md-divider>
+                                            <div class="md-list-item-text" layout="column">
+                                                <h3>Sales Taxes: {{basket.salesTaxes}}</h3>
+
+                                                <h3>Total: {{basket.total}}</h3>
+                                            </div>
+                                        </md-list>
+                                    </md-content>
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Product">
+                    <md-content class="md-padding">
+                        <h3 class="md-display-2">Product</h3>
+
+                        <div ng-controller="ProductCtrl" ng-cloak>
+                            <md-content>
+                                <md-tabs md-dynamic-height md-border-bottom>
+                                    <md-tab label="New Product">
+                                        <md-content class="md-padding">
+                                            <md-input-container flex="50">
+                                                <label>Product Name</label>
+                                                <input name="productName" ng-model="product.name">
+
+                                                <div ng-messages="productForm.productName.$error">
+                                                    <div ng-message="required">This is required.</div>
+                                                </div>
+                                            </md-input-container>
+                                            <md-input-container class="md-block">
+                                                <label>Price</label>
+                                                <input type="number" name="productPrice" ng-model="product.price"/>
+
+                                                <div ng-messages="productForm.productPrice.$error">
+                                                    <div ng-message="required">This is required.</div>
+                                                </div>
+                                            </md-input-container>
+                                            <div flex-gt-sm="50">
+                                                <md-checkbox ng-model="product.exemptTax" aria-label="Except Taxes">
+                                                    Except Taxes
+                                                </md-checkbox>
+                                            </div>
+                                            <div flex-gt-sm="50">
+                                                <md-checkbox ng-model="product.isImported"
+                                                             aria-label="Imported Product">
+                                                    Imported Product
+                                                </md-checkbox>
+                                            </div>
+                                            <p>
+                                                {{message}}<br/>
+                                                <md-button md-no-ink class="md-primary" ng-click="addProduct(product)">
+                                                    Add product
+                                                </md-button>
+                                            </p>
+                                        </md-content>
+                                    </md-tab>
+                                    <md-tab label="Add default Products">
+                                        <md-content class="md-padding">
+                                            <h4 class="md-display-2">Add products for unit test</h4>
+
+                                            <p>
+                                                {{messageList}}<br/>
+                                                <md-button md-no-ink class="md-primary" ng-click="addAllProduct()">Add
+                                                    products
+                                                </md-button>
+                                            </p>
+                                        </md-content>
+                                    </md-tab>
+
+                                </md-tabs>
+                            </md-content>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+</div>
+</body>
+
+</html>
